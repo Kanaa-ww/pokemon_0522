@@ -29,15 +29,6 @@ let closeSound = new Audio('./sound/close.mp3');
 let openSound = new Audio('./sound/open.mp3');
 let pikachuSound = new Audio('./sound/pikachu.m4r');
 
-document.addEventListener("DOMContentLoaded", function() {
-    // ピカチュウの画像にクリックイベントを追加
-    const pikachuImage = document.querySelector('.pikachu');
-    pikachuImage.addEventListener('click', function() {
-        pikachuSound.play();  // ピカチュウの効果音を再生
-    });
-});
-
-
 /**
  * **************************************************************
  * 定数のボタンという箱の中に、HTMLの要素からgoというIDを取得します。
@@ -69,7 +60,6 @@ function gofunction() {
 
 document.getElementById("go").addEventListener("click", function() {
     $(".pokeball").addClass("image-rotate");
-    closeSound.play();
     // window.onload = function() {
         // アニメーションを適用する画像の要素を取得
         var image = document.querySelector('.image-rotate');
@@ -78,7 +68,6 @@ document.getElementById("go").addEventListener("click", function() {
         setTimeout(function() {
             document.getElementById("closed-pokeball").style.display = "none";  // 閉じたボールを非表示
             document.getElementById("pokeball-container").style.display = "block"; // 開いたボールを表示
-            openSound.play();
 
             fetch('https://pokeapi.co/api/v2/pokemon/?limit=100')
             .then(response => response.json())
