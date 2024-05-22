@@ -18,8 +18,6 @@
     background-color: black;
     text-align: center;
     text-align: left;
-    /* padding: 30px; */
-    /* height: 65px; */
     height:300px;
     margin-bottom: 50px;
 }
@@ -27,9 +25,7 @@
     width: 553px;
     height: 177px;
     text-align: center;
-    /* display: table-cell; */
     margin-top: 50px;
-    /* margin-bottom: 50px; */
 }
 
 .pikachu{
@@ -46,10 +42,6 @@ h1 {
     display: flex;
     margin-bottom: 50px;
 }
-
-/* .main {
-    position: relative;
-} */
 
 #closed-pokeball{
     width: 600px;
@@ -84,12 +76,10 @@ h1 {
     margin:  0 auto; 
 }
 
-
-
 #pokeball-container {
     position: relative;
-    width: 600px;  /* Poke_Ballopen.pngの実際の幅に合わせて調整してください */
-    height: 600px; /* Poke_Ballopen.pngの実際の高さに合わせて調整してください */
+    width: 600px;  /* Poke_Ballopen.pngの実際の幅に合わせて調整する */
+    height: 600px; /* Poke_Ballopen.pngの実際の高さに合わせて調整する */
 }
 
 #pokeball-image {
@@ -141,20 +131,3 @@ h1 {
 #wrap {
     text-align: center;
 }
-
-/* #pokeball-container {
-    position: relative;
-    display: inline-block;
-}
-
-#app {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */

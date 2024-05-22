@@ -24,7 +24,6 @@ fetch(subetePokemonURl)
     })
 
     // 効果音
-let buttonSound = new Audio('./sound/button.mp3');
 let closeSound = new Audio('./sound/close.mp3');
 let openSound = new Audio('./sound/open.mp3');
 let pikachuSound = new Audio('./sound/pikachu.m4r');
@@ -36,36 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
         pikachuSound.play();  // ピカチュウの効果音を再生
     });
 });
-
-
-/**
- * **************************************************************
- * 定数のボタンという箱の中に、HTMLの要素からgoというIDを取得します。
- */
-const button = document.getElementById("go")
-//gofunctionという関数を定義します。
-function gofunction() {
-    // zenPokemonの配列の２番を、表示します。
-    // console.log(zenPokemon[2]);
-    const randomIndex = Math.floor(Math.random() * zenPokemon.length);
-    console.log(zenPokemon[randomIndex]);
-    
-    // HTMLの中のIDのapp要素を取得します。HTMLの中の画像を
-    document.getElementById("app").innerHTML = `<img src="${zenPokemon[randomIndex].sprites.front_default}" />`;
-}
-// クリックイベント IDのgoというボタンをクリックしたら、関数のgofunctionが呼び出されます。
-button.onclick = gofunction;
-
-function gofunction() {
-    const randomIndex = Math.floor(Math.random() * zenPokemon.length);
-    const pokemon = zenPokemon[randomIndex];
-    const spriteUrl = pokemon.sprites.front_default;
-    if (spriteUrl) {
-        document.getElementById("app").innerHTML = `<img src="${spriteUrl}" style="max-width: 100%; max-height: 100%;">`;
-    } else {
-        document.getElementById("app").innerHTML = "画像がありません";
-    }
-}
 
 document.getElementById("go").addEventListener("click", function() {
     $(".pokeball").addClass("image-rotate");
@@ -95,15 +64,16 @@ document.getElementById("go").addEventListener("click", function() {
                 console.error('Error fetching Pokemon:', error);
             });
             image.style.animation = 'none';
-        }, 3000);
-        // 3000=3秒
-      ;  
+            $('.pokeball').removeClass("image-rotate");
+
+        }, 3000); // 3000=3秒
+       
+      document.getElementById("closed-pokeball").style.display = "block";  // 閉じたボールを表示
+      document.getElementById("pokeball-container").style.display = "none"; // 開いたボールを非表示
+        image.style.animation = 'rotate 1s linear infinite';
 });
 
-
-/**
- * **************************************************************
- */
+//  * **************************************************************
 const subetePokemonURl2 = "https://pokeapi.co/api/v2/pokemon/?limit=28"; // 28個までとりに行く
 fetch(subetePokemonURl2)
     .then((response) => response.json())
